@@ -1,0 +1,38 @@
+{
+  "name": "BackendTest-Nexa---DIO-YOGA-PRATAMA-",
+  "version": "1.0.0",
+  "description": "BackendTest-Nexa---DIO-YOGA-PRATAMA-",
+  "main": "app.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diopratama97/BackendTest-Nexa---DIO-YOGA-PRATAMA-.git"
+  },
+  "author": "diopratama97",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diopratama97/BackendTest-Nexa---DIO-YOGA-PRATAMA-/issues"
+  },
+  "homepage": "https://github.com/diopratama97/BackendTest-Nexa---DIO-YOGA-PRATAMA-#readme",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.95.15",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.5.1",
+    "nodemon": "^2.0.15",
+    "objection": "^3.0.1",
+    "swagger-ui-express": "^4.1.6"
+  }
+}
