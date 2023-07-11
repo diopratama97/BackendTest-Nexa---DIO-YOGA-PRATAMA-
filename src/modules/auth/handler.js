@@ -3,6 +3,7 @@ const { knex } = require("../../config/db");
 const { login } = require("./schema");
 const jwt = require("jsonwebtoken");
 const moment = require("moment");
+const { createLog } = require("../../helpers/logApi");
 
 exports.login = async (req, res) => {
   try {
@@ -18,7 +19,7 @@ exports.login = async (req, res) => {
       .first();
 
     if (!checkLogin) {
-      return responseHandler.notFound(res, "User tidak ditemukan!");
+      return responseHandler.notFound(res, "Admin tidak ditemukan!");
     }
 
     const adminToken = {
@@ -29,21 +30,20 @@ exports.login = async (req, res) => {
 
     await Promise.all([
       knex("admin_token").insert(adminToken),
-      knex("log_trx_api").insert({
-        user_id: checkLogin.id,
-        api: `${req.method}:${req.headers.host}${req.url}`,
-        request: JSON.stringify(value),
-        response: JSON.stringify({
-          message: "Berhasil",
-          error: false,
-          data: adminToken,
-        }),
-        insert_at: new Date(),
+      createLog(req, value, checkLogin.id, {
+        message: "Berhasil",
+        error: false,
+        data: adminToken,
       }),
     ]);
 
     return responseHandler.jsonSuccess(res, adminToken, "Berhasil");
   } catch (error) {
+    await createLog(req, req.body, null, {
+      message: error.message,
+      error: true,
+      errorDetail: error,
+    });
     return responseHandler.serverError(res);
   }
 };

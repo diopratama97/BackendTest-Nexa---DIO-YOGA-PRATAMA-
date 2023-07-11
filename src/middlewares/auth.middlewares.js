@@ -14,7 +14,7 @@ exports.authMiddlewares = async (req, res, next) => {
         .join("admin as a", "a.id", "at.id_admin")
         .where("at.token", token)
         .andWhere("at.expired_at", ">", new Date())
-        .select("a.username")
+        .select("a.username", "a.id")
         .first();
       if (!result) {
         return responseHandler.unauthorized(res);
@@ -22,7 +22,7 @@ exports.authMiddlewares = async (req, res, next) => {
       req.user = result;
       next();
     } else {
-      return responseHandler.notFound(res, "Token tidak tersedia");
+      return responseHandler.unauthorized(res, "Token tidak tersedia");
     }
   } catch (error) {
     return responseHandler.serverError(res);
