@@ -1,0 +1,7 @@
+version: "3.7"
+
+services:
+  app:
+    image: backend-test-nexa-dio-yoga-pratama
+    ports:
+      - 3000:3000
