@@ -7,8 +7,8 @@
 3. sesuaikan port (default port 3000)
 4. jalan kan npm run dev / npm start / yarn dev / yarn start untuk menjalan kan project
 5. untuk dokumentasi saya menggunakan swagger, bisa di akses melalui http://localhost:3000/docs-api/ setelah project jalan
-6. untuk menjalan kan via docker pakai perintah yarn docker-start / npm run docker-start. perintah menjalan kan build ke image docker kemudian di jalan kan via docker compose
-7. untuk berhenti menjalan kan dari via docker bisa pakai perintah yarn docker-stop / npm run docker-stop. perintah menjalan kan stop docker compose dan menghapus image docker nya
+6. untuk menjalan kan via docker pakai perintah yarn docker-start / npm run docker-start. perintah tersebut menjalankan build ke image docker kemudian di jalan kan via docker compose
+7. untuk berhenti menjalankan dari via docker bisa pakai perintah yarn docker-stop / npm run docker-stop. perintah tersebut menjalankan stop docker compose dan menghapus image docker nya
 
 ## 2. Membuat Query dalam bentuk store procedure dan view Database dalam bentuk file .sql
 
